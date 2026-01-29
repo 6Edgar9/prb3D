@@ -624,3 +624,27 @@ footer {
     .hero-actions { flex-direction: column; gap: 10px; }
     .container { padding: 40px 5%; }
 }
+
+/* --- MEDIA QUERIES (AJUSTES FINALES) --- */
+
+/* Tablets y Laptops Pequeñas */
+@media (max-width: 992px) {
+    .room-horizontal-card { flex-direction: column; }
+    .contact-wrapper { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+}
+
+/* Celulares */
+@media (max-width: 768px) {
+    header { height: auto; flex-direction: column; padding: 15px; gap: 10px; }
+    nav ul { gap: 10px; flex-wrap: wrap; justify-content: center; }
+    .hero-banner { min-height: 60vh; }
+    .container { padding: 40px 5%; }
+    .footer-grid { grid-template-columns: 1fr; text-align: center; }
+}
+
+/* Celulares Pequeños */
+@media (max-width: 480px) {
+    .hero-actions { flex-direction: column; width: 100%; }
+    .btn-gold, .btn-outline { width: 100%; box-sizing: border-box; }
+}
