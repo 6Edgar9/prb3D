@@ -164,4 +164,86 @@ nav a { color: var(--blanco); text-decoration: none; font-size: 0.8rem; transiti
     backdrop-filter: blur(5px);
 }
 
-.btn-back:hover { background: var(--dorado); color: black; }
+.btn-back:hover { 
+    background: var(--dorado); 
+    color: black; }
+
+/* --- AÑADIR AL FINAL DE TU STYLE.CSS --- */
+
+/* Responsive para Tablets y Celulares */
+@media (max-width: 768px) {
+    /* Header: Menú apilado o con scroll */
+    header {
+        flex-direction: column;
+        height: auto;
+        padding: 15px;
+    }
+
+    nav ul {
+        margin-top: 15px;
+        gap: 10px;
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 0;
+    }
+
+    nav a {
+        font-size: 0.7rem; /* Texto más pequeño para que quepa */
+    }
+
+    /* Secciones: Menos relleno */
+    .container {
+        padding: 40px 5%;
+    }
+
+    /* Galería de Selección y Habitaciones: 1 sola columna */
+    .selection-grid, .rooms-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Visor 3D: Ajuste de controles */
+    .btn-back {
+        top: 10px;
+        left: 10px;
+        font-size: 0.8rem;
+        padding: 8px 12px;
+    }
+
+    /* Selector UPN: Miniaturas más pequeñas y con scroll lateral */
+    .upn-thumbnail-list {
+        justify-content: flex-start; /* Permite scroll */
+        padding: 10px 20px;
+        overflow-x: scroll;
+        -webkit-overflow-scrolling: touch; /* Scroll suave en iPhone */
+    }
+
+    .upn-thumb {
+        min-width: 120px; /* Tamaño fijo para forzar el scroll horizontal */
+    }
+
+    .thumb-img {
+        width: 120px;
+        height: 70px;
+    }
+
+    /* Contacto: De horizontal a vertical */
+    .contact-flex {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .contact-info {
+        text-align: center;
+    }
+}
+
+/* Ajustes para celulares muy pequeños */
+@media (max-width: 480px) {
+    .logo {
+        font-size: 1.1rem;
+    }
+    
+    .hero-text h1 {
+        font-size: 1.8rem;
+    }
+}

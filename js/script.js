@@ -3,7 +3,10 @@ const viewer = pannellum.viewer('panorama', {
     "default": {
         "firstScene": "sala",
         "autoLoad": true,
-        "autoRotate": -1
+        "autoRotate": -1,
+        "draggable": true,
+        "mouseZoom": false,
+        "touchPanSpeedCoeffFactor": 1
     },
     "scenes": {
         "sala": {
