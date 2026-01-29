@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Paradiso | Habitaciones & Suites</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo">Hotel Paradiso</div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="habitaciones.html" class="active">Habitaciones</a></li>
+                <li><a href="vista3d.html">Vista 3D</a></li>
+                <li><a href="servicios.html">Servicios</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="booking-bar">
+        <div class="container booking-flex">
+            <div class="input-group">
+                <label><i class="fas fa-calendar-alt"></i> Check-in</label>
+                <input type="date" id="checkin">
+            </div>
+            <div class="input-group">
+                <label><i class="fas fa-calendar-check"></i> Check-out</label>
+                <input type="date" id="checkout">
+            </div>
+            <div class="input-group">
+                <label><i class="fas fa-users"></i> Huéspedes</label>
+                <select>
+                    <option>1 Adulto</option>
+                    <option selected>2 Adultos</option>
+                    <option>3 Adultos</option>
+                </select>
+            </div>
+            <button class="btn-gold">Consultar</button>
+        </div>
+    </section>
+
+    <section class="container">
+        <h2 class="section-title">Nuestras Suites</h2>
+        
+        <div class="rooms-container">
+            <div class="room-horizontal-card">
+                <div class="room-gallery" style="background-image: url('image/1.jpg');"></div>
+                <div class="room-details">
+                    <div class="room-header">
+                        <h3>Suite Ejecutiva</h3>
+                        <span class="room-price">Desde $150 <span>/ noche</span></span>
+                    </div>
+                    <p>Espacio diseñado para el descanso y la productividad, con una impresionante vista panorámica de la ciudad.</p>
+                    <div class="room-amenities">
+                        <span><i class="fas fa-bed"></i> King Size</span>
+                        <span><i class="fas fa-wifi"></i> Fibra Óptica</span>
+                        <span><i class="fas fa-coffee"></i> Minibar</span>
+                        <span><i class="fas fa-tv"></i> Smart TV 55"</span>
+                    </div>
+                    <div class="room-footer">
+                        <a href="vista3d.html" class="btn-outline">Ver en 3D</a>
+                        <button class="btn-gold" onclick="openBooking('Suite Ejecutiva')">Reservar Ahora</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="room-horizontal-card">
+                <div class="room-gallery" style="background-image: url('image/2.jpg');"></div>
+                <div class="room-details">
+                    <div class="room-header">
+                        <h3>Doble Deluxe</h3>
+                        <span class="room-price">Desde $120 <span>/ noche</span></span>
+                    </div>
+                    <p>Ideal para familias o viajes grupales, combinando confort moderno con elegancia clásica.</p>
+                    <div class="room-amenities">
+                        <span><i class="fas fa-user-friends"></i> 2 Queen</span>
+                        <span><i class="fas fa-wind"></i> A/C</span>
+                        <span><i class="fas fa-bath"></i> Tina de Hidromasaje</span>
+                    </div>
+                    <div class="room-footer">
+                        <a href="vista3d.html" class="btn-outline">Ver en 3D</a>
+                        <button class="btn-gold" onclick="openBooking('Doble Deluxe')">Reservar Ahora</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="bookingModal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal()">&times;</span>
+            <h2 class="section-title">Finalizar Reserva</h2>
+            <h3 id="modalRoomName" style="color: var(--dorado); text-align: center;"></h3>
+            
+            <form class="booking-form-detailed" id="finalBookingForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Check-in</label>
+                        <input type="date" id="modalCheckin" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Check-out</label>
+                        <input type="date" id="modalCheckout" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Adultos</label>
+                        <select id="modalAdults">
+                            <option value="1">1 Adulto</option>
+                            <option value="2" selected>2 Adultos</option>
+                            <option value="3">3 Adultos</option>
+                            <option value="4">4 Adultos</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Niños</label>
+                        <select id="modalChildren">
+                            <option value="0">Sin niños</option>
+                            <option value="1">1 Niño</option>
+                            <option value="2">2 Niños</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Nombre Completo</label>
+                    <input type="text" id="guestName" placeholder="Ej. Edgar Regalado" required>
+                </div>
+                <div class="form-group">
+                    <label>Correo Electrónico</label>
+                    <input type="email" id="guestEmail" placeholder="correo@ejemplo.com" required>
+                </div>
+                <div class="form-group">
+                    <label>Teléfono / WhatsApp</label>
+                    <input type="tel" id="guestPhone" placeholder="+51 ..." required>
+                </div>
+
+                <button type="submit" class="btn-gold" style="width: 100%; margin-top: 10px;">Confirmar Reserva</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="successModal" class="modal hidden">
+        <div class="modal-content" style="text-align: center; border-color: #25d366;">
+            <span class="close-modal" onclick="closeSuccessModal()">&times;</span>
+            <i class="fas fa-check-circle" style="font-size: 4rem; color: #25d366; margin-bottom: 20px;"></i>
+            <h2 class="section-title" style="color: #25d366; margin-bottom: 10px;">¡Reserva Solicitada!</h2>
+            <div id="successMessage" style="line-height: 1.6; margin-bottom: 25px; white-space: pre-line;">
+                </div>
+            <button class="btn-gold" onclick="closeSuccessModal()" style="width: 100%;">Entendido</button>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container footer-grid">
+            <div class="footer-about">
+                <div class="logo">Hotel Paradiso</div>
+                <p>Lujo y confort en el corazón de Cajamarca. Tu satisfacción es nuestra prioridad.</p>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="Tripadvisor"><i class="fab fa-tripadvisor"></i></a>
+                    <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-links">
+                <h4>Explorar</h4>
+                <a href="index.html">Inicio</a>
+                <a href="habitaciones.html">Habitaciones</a>
+                <a href="vista3d.html">Vista 3D</a>
+                <a href="servicios.html">Servicios</a>
+            </div>
+
+            <div class="footer-links">
+                <h4>Soporte</h4>
+                <a href="#">Privacidad</a>
+                <a href="#">Términos y Condiciones</a>
+                <a href="contacto.html">Contacto</a>
+            </div>
+
+            <div class="footer-contact">
+                <h4>Contacto</h4>
+                <p><i class="fas fa-map-marker-alt"></i> Calle Principal 123, Cajamarca</p>
+                <p><i class="fas fa-phone"></i> +51 987 654 321</p>
+                <p><i class="fas fa-envelope"></i> reservas@hotelparadiso.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Hotel Paradiso - Todos los derechos reservados</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

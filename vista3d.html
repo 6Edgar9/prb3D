@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Ejemplo | Vista 3D</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.css"/>
+    <link rel="stylesheet" href="style/style.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo">Hotel Ejemplo</div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="habitaciones.html">Habitaciones</a></li>
+                <li><a href="vista3d.html" class="active">Vista 3D</a></li>
+                <li><a href="servicios.html">Servicios</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="vista3d" class="page-section">
+        <div id="gallery-view" class="container">
+            <h2 class="section-title">Explora Nuestras Instalaciones</h2>
+            <p class="section-subtitle">Selecciona un ambiente para iniciar el recorrido interactivo</p>
+            
+            <div class="selection-grid">
+                <div class="selection-card" onclick="startTour('sala')">
+                    <div class="card-img" style="background-image: url('image/1.jpg');"></div>
+                    <div class="card-info">
+                        <h3>Suite Deluxe</h3>
+                        <span>Entrar →</span>
+                    </div>
+                </div>
+
+                <div class="selection-card" onclick="startTour('piscina')">
+                    <div class="card-img" style="background-image: url('image/2.jpg');"></div>
+                    <div class="card-info">
+                        <h3>Piscina Rooftop</h3>
+                        <span>Entrar →</span>
+                    </div>
+                </div>
+
+                <div class="selection-card" onclick="startTour('vista')">
+                    <div class="card-img" style="background-image: url('image/3.jpg');"></div>
+                    <div class="card-info">
+                        <h3>Vista Panorámica</h3>
+                        <span>Entrar →</span>
+                    </div>
+                </div>
+
+                <div class="selection-card" onclick="startTour('hab.1')">
+                    <div class="card-img" style="background-image: url('image/4.jpg');"></div>
+                    <div class="card-info">
+                        <h3>Habitación 1</h3>
+                        <span>Entrar →</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="viewer-container" class="hidden">
+            <button class="btn-back" onclick="backToGallery()">← Volver a la Galería</button>
+            <div id="panorama"></div>
+            <div class="upn-selector-container">
+                <div class="upn-thumbnail-list">
+                    <div class="upn-thumb" onclick="changeScene('sala', this)"><div class="thumb-img" style="background-image: url('image/1.jpg');"></div></div>
+                    <div class="upn-thumb" onclick="changeScene('piscina', this)"><div class="thumb-img" style="background-image: url('image/2.jpg');"></div></div>
+                    <div class="upn-thumb" onclick="changeScene('vista', this)"><div class="thumb-img" style="background-image: url('image/3.jpg');"></div></div>
+                    <div class="upn-thumb" onclick="changeScene('hab.1', this)"><div class="thumb-img" style="background-image: url('image/4.jpg');"></div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container footer-grid">
+            <div class="footer-about">
+                <div class="logo">Hotel Paradiso</div>
+                <p>Lujo y confort en el corazón de Cajamarca. Tu satisfacción es nuestra prioridad.</p>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="Tripadvisor"><i class="fab fa-tripadvisor"></i></a>
+                    <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-links">
+                <h4>Explorar</h4>
+                <a href="index.html">Inicio</a>
+                <a href="habitaciones.html">Habitaciones</a>
+                <a href="vista3d.html">Vista 3D</a>
+                <a href="servicios.html">Servicios</a>
+            </div>
+
+            <div class="footer-links">
+                <h4>Soporte</h4>
+                <a href="#">Privacidad</a>
+                <a href="#">Términos y Condiciones</a>
+                <a href="contacto.html">Contacto</a>
+            </div>
+
+            <div class="footer-contact">
+                <h4>Contacto</h4>
+                <p><i class="fas fa-map-marker-alt"></i> Calle Principal 123, Cajamarca</p>
+                <p><i class="fas fa-phone"></i> +51 987 654 321</p>
+                <p><i class="fas fa-envelope"></i> reservas@hotelparadiso.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Hotel Paradiso - Todos los derechos reservados</p>
+        </div>
+    </footer>   
+
+    <script src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>

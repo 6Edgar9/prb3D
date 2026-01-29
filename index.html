@@ -3,124 +3,129 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hotel Ejemplo | Exclusividad & Confort</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.css"/>
+    <title>Hotel Paradiso | Exclusividad & Confort</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
 
     <header>
-        <div class="logo">Hotel Ejemplo</div>
+        <div class="logo">Hotel Paradiso</div>
         <nav>
             <ul>
-                <li><a href="#" onclick="showPage('inicio')" id="link-inicio">Inicio</a></li>
-                <li><a href="#" onclick="showPage('habitaciones')" id="link-habitaciones">Habitaciones</a></li>
-                <li><a href="#" onclick="showPage('vista3d')" id="link-vista3d" class="active">Vista 3D</a></li>
-                <li><a href="#" onclick="showPage('servicios')" id="link-servicios">Servicios</a></li>
-                <li><a href="#" onclick="showPage('contacto')" id="link-contacto">Contacto</a></li>
+                <li><a href="index.html" class="active">Inicio</a></li>
+                <li><a href="habitaciones.html">Habitaciones</a></li>
+                <li><a href="vista3d.html">Vista 3D</a></li>
+                <li><a href="servicios.html">Servicios</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
             </ul>
         </nav>
     </header>
 
-    <section id="inicio" class="page-section hidden">
-        <div class="hero-banner">
-            <div class="hero-text">
-                <h1>Tu Refugio de Lujo</h1>
-                <p>Ubicado en el corazón de la ciudad, ofreciendo una experiencia inigualable desde 2010.</p>
-                <button class="btn-gold" onclick="showPage('habitaciones')">Explorar Más</button>
+    <section class="hero-banner">
+        <div class="hero-content">
+            <span class="hero-subtitle">Bienvenido a la Excelencia</span>
+            <h1>Tu Refugio de Lujo</h1>
+            <p>Ubicado en el corazón de la ciudad, ofreciendo una experiencia inigualable desde 2010.</p>
+            <div class="hero-actions">
+                <a href="habitaciones.html" class="btn-gold">Reservar Suite</a>
+                <a href="vista3d.html" class="btn-outline">Explorar en 3D</a>
             </div>
         </div>
     </section>
 
-    <section id="habitaciones" class="page-section hidden">
-        <div class="container">
-            <h2 class="section-title">Nuestras Habitaciones</h2>
-            <div class="rooms-grid">
-                <div class="room-card">
-                    <div class="room-img" style="background-image: url('image/1.jpg');"></div>
-                    <h3>Suite Ejecutiva</h3>
-                    <p>Cama King Size, Wi-Fi de alta velocidad y vista panorámica.</p>
-                    <span class="price">$150 / Noche</span>
-                </div>
-                <div class="room-card">
-                    <div class="room-img" style="background-image: url('image/2.jpg');"></div>
-                    <h3>Doble Deluxe</h3>
-                    <p>Dos camas queen, ideal para viajes familiares o de negocios.</p>
-                    <span class="price">$120 / Noche</span>
-                </div>
+    <div class="features-bar">
+        <div class="feature-item"><i class="fas fa-wifi"></i><span>Wi-Fi Premium</span></div>
+        <div class="feature-item"><i class="fas fa-swimming-pool"></i><span>Piscina Infinita</span></div>
+        <div class="feature-item"><i class="fas fa-spa"></i><span>Spa & Relax</span></div>
+        <div class="feature-item"><i class="fas fa-utensils"></i><span>Cena Gourmet</span></div>
+    </div>
+
+    <section class="container about-us">
+        <div class="about-flex">
+            <div class="about-text">
+                <h2 class="section-title" style="text-align: left;">Nuestra Historia</h2>
+                <p>En Hotel Paradiso, nos dedicamos a transformar cada estadía en un recuerdo eterno. Desde nuestra fundación en Cajamarca, hemos sido el punto de encuentro para viajeros que buscan la combinación perfecta entre elegancia y la calidez de nuestro servicio personalizado.</p>
+                <p>Nuestras instalaciones cuentan con tecnología de punta y diseños arquitectónicos que respetan la esencia local.</p>
+            </div>
+            <div class="about-image">
+                <img src="image/2.jpg" alt="Hotel Exterior" style="width: 100%; border-radius: 15px; border: 1px solid var(--dorado);">
             </div>
         </div>
     </section>
 
-    <section id="vista3d" class="page-section">
-        <div id="gallery-view" class="container">
-            <h2 class="section-title">Explora Nuestras Instalaciones</h2>
-            <p style="text-align: center; margin-bottom: 30px; opacity: 0.8;">Selecciona un ambiente para iniciar el recorrido interactivo</p>
-            
-            <div class="selection-grid">
-                <div class="selection-card" onclick="startTour('sala')">
-                    <div class="card-img" style="background-image: url('image/1.jpg');"></div>
-                    <div class="card-info"><h3>Suite Deluxe</h3><span>Entrar →</span></div>
-                </div>
-                <div class="selection-card" onclick="startTour('piscina')">
-                    <div class="card-img" style="background-image: url('image/2.jpg');"></div>
-                    <div class="card-info"><h3>Piscina Rooftop</h3><span>Entrar →</span></div>
-                </div>
-                <div class="selection-card" onclick="startTour('vista')">
-                    <div class="card-img" style="background-image: url('image/3.jpg');"></div>
-                    <div class="card-info"><h3>Vista Panorámica</h3><span>Entrar →</span></div>
-                </div>
-                <div class="selection-card" onclick="startTour('hab.1')">
-                    <div class="card-img" style="background-image: url('image/4.jpg');"></div>
-                    <div class="card-info"><h3>Habitación 1</h3><span>Entrar →</span></div>
+    <section class="container experiences">
+        <h2 class="section-title">Experiencias Memorables</h2>
+        <div class="experience-grid">
+            <div class="exp-card">
+                <div class="exp-img" style="background-image: url('image/1.jpg');"></div>
+                <div class="exp-info">
+                    <h3>Gastronomía Local</h3>
+                    <p>Sabores auténticos de la región preparados por expertos.</p>
                 </div>
             </div>
-        </div>
-
-        <div id="viewer-container" class="hidden">
-            <button class="btn-back" onclick="backToGallery()">← Volver a la Galería</button>
-            <div id="panorama"></div>
-            
-            <div class="upn-selector-container">
-                <div class="upn-thumbnail-list">
-                    <div class="upn-thumb" onclick="changeScene('sala', this)"><div class="thumb-img" style="background-image: url('image/1.jpg');"></div></div>
-                    <div class="upn-thumb" onclick="changeScene('piscina', this)"><div class="thumb-img" style="background-image: url('image/2.jpg');"></div></div>
-                    <div class="upn-thumb" onclick="changeScene('vista', this)"><div class="thumb-img" style="background-image: url('image/3.jpg');"></div></div>
-                    <div class="upn-thumb" onclick="changeScene('hab.1', this)"><div class="thumb-img" style="background-image: url('image/4.jpg');"></div></div>
+            <div class="exp-card">
+                <div class="exp-img" style="background-image: url('image/2.jpg');"></div>
+                <div class="exp-info">
+                    <h3>Atardeceres Únicos</h3>
+                    <p>La mejor vista panorámica desde nuestro Rooftop.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="servicios" class="page-section hidden">
-        <div class="container">
-            <h2 class="section-title">Servicios de Clase Mundial</h2>
-            <div class="services-list">
-                <div class="service-item"><h3>Restaurante Gourmet</h3><p>Cocina internacional de autor.</p></div>
-                <div class="service-item"><h3>Spa & Masajes</h3><p>Relajación total para tu cuerpo.</p></div>
-                <div class="service-item"><h3>Transporte VIP</h3><p>Traslados privados al aeropuerto.</p></div>
-            </div>
+    <section class="container location">
+        <h2 class="section-title">Encuéntranos</h2>
+        <div class="map-container">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15822.46332766373!2d-78.520448!3d-7.159322!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91306660144d2d6f%3A0x8892796e95c1a840!2sCajamarca!5e0!3m2!1ses!2spe!4v1700000000000!5m2!1ses!2spe" width="100%" height="400" style="border:0; border-radius: 15px;" allowfullscreen="" loading="lazy"></iframe>
         </div>
     </section>
 
-    <section id="contacto" class="page-section hidden">
-        <div class="container contact-flex">
-            <div class="contact-info">
-                <h2>¿Tienes Dudas?</h2>
-                <p>Estamos disponibles 24/7 para atenderte.</p>
-                <p>📍 Calle Principal 123, Cajamarca, Perú</p>
-                <p>📞 +51 987 654 321</p>
+    <footer>
+        <div class="container footer-grid">
+            <div class="footer-about">
+                <div class="logo">Hotel Paradiso</div>
+                <p>Lujo y confort en el corazón de Cajamarca. Tu satisfacción es nuestra prioridad.</p>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="Tripadvisor"><i class="fab fa-tripadvisor"></i></a>
+                    <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                </div>
             </div>
-            <form class="contact-form">
-                <input type="text" placeholder="Nombre Completo" required>
-                <input type="email" placeholder="Correo Electrónico" required>
-                <textarea placeholder="Tu Mensaje" rows="5"></textarea>
-                <button type="submit" class="btn-gold">Enviar Mensaje</button>
-            </form>
-        </div>
-    </section>
 
-    <script src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js"></script>
-    <script src="js/script.js"></script>
+            <div class="footer-links">
+                <h4>Explorar</h4>
+                <a href="index.html">Inicio</a>
+                <a href="habitaciones.html">Habitaciones</a>
+                <a href="vista3d.html">Vista 3D</a>
+                <a href="servicios.html">Servicios</a>
+            </div>
+
+            <div class="footer-links">
+                <h4>Soporte</h4>
+                <a href="#">Privacidad</a>
+                <a href="#">Términos y Condiciones</a>
+                <a href="contacto.html">Contacto</a>
+            </div>
+
+            <div class="footer-contact">
+                <h4>Contacto</h4>
+                <p><i class="fas fa-map-marker-alt"></i> Calle Principal 123, Cajamarca</p>
+                <p><i class="fas fa-phone"></i> +51 987 654 321</p>
+                <p><i class="fas fa-envelope"></i> reservas@hotelparadiso.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Hotel Paradiso - Todos los derechos reservados</p>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/51987654321" class="whatsapp-btn" target="_blank">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+        <span class="tooltip">¿Deseas reservar?</span>
+    </a>
+
 </body>
 </html>
