@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Ejemplo | Exclusividad & Confort</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.css"/>
+    <link rel="stylesheet" href="style/style.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo">Hotel Ejemplo</div>
+        <nav>
+            <ul>
+                <li><a href="#" onclick="showPage('inicio')" id="link-inicio">Inicio</a></li>
+                <li><a href="#" onclick="showPage('habitaciones')" id="link-habitaciones">Habitaciones</a></li>
+                <li><a href="#" onclick="showPage('vista3d')" id="link-vista3d" class="active">Vista 3D</a></li>
+                <li><a href="#" onclick="showPage('servicios')" id="link-servicios">Servicios</a></li>
+                <li><a href="#" onclick="showPage('contacto')" id="link-contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="inicio" class="page-section hidden">
+        <div class="hero-banner">
+            <div class="hero-text">
+                <h1>Tu Refugio de Lujo</h1>
+                <p>Ubicado en el corazón de la ciudad, ofreciendo una experiencia inigualable desde 2010.</p>
+                <button class="btn-gold" onclick="showPage('habitaciones')">Explorar Más</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="habitaciones" class="page-section hidden">
+        <div class="container">
+            <h2 class="section-title">Nuestras Habitaciones</h2>
+            <div class="rooms-grid">
+                <div class="room-card">
+                    <div class="room-img" style="background-image: url('image/1.jpg');"></div>
+                    <h3>Suite Ejecutiva</h3>
+                    <p>Cama King Size, Wi-Fi de alta velocidad y vista panorámica.</p>
+                    <span class="price">$150 / Noche</span>
+                </div>
+                <div class="room-card">
+                    <div class="room-img" style="background-image: url('image/2.jpg');"></div>
+                    <h3>Doble Deluxe</h3>
+                    <p>Dos camas queen, ideal para viajes familiares o de negocios.</p>
+                    <span class="price">$120 / Noche</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="vista3d" class="page-section">
+        <div id="gallery-view" class="container">
+            <h2 class="section-title">Explora Nuestras Instalaciones</h2>
+            <p style="text-align: center; margin-bottom: 30px; opacity: 0.8;">Selecciona un ambiente para iniciar el recorrido interactivo</p>
+            
+            <div class="selection-grid">
+                <div class="selection-card" onclick="startTour('sala')">
+                    <div class="card-img" style="background-image: url('image/1.jpg');"></div>
+                    <div class="card-info"><h3>Suite Deluxe</h3><span>Entrar →</span></div>
+                </div>
+                <div class="selection-card" onclick="startTour('piscina')">
+                    <div class="card-img" style="background-image: url('image/2.jpg');"></div>
+                    <div class="card-info"><h3>Piscina Rooftop</h3><span>Entrar →</span></div>
+                </div>
+                <div class="selection-card" onclick="startTour('vista')">
+                    <div class="card-img" style="background-image: url('image/3.jpg');"></div>
+                    <div class="card-info"><h3>Vista Panorámica</h3><span>Entrar →</span></div>
+                </div>
+                <div class="selection-card" onclick="startTour('hab.1')">
+                    <div class="card-img" style="background-image: url('image/4.jpg');"></div>
+                    <div class="card-info"><h3>Habitación 1</h3><span>Entrar →</span></div>
+                </div>
+            </div>
+        </div>
+
+        <div id="viewer-container" class="hidden">
+            <button class="btn-back" onclick="backToGallery()">← Volver a la Galería</button>
+            <div id="panorama"></div>
+            
+            <div class="upn-selector-container">
+                <div class="upn-thumbnail-list">
+                    <div class="upn-thumb" onclick="changeScene('sala', this)"><div class="thumb-img" style="background-image: url('image/1.jpg');"></div></div>
+                    <div class="upn-thumb" onclick="changeScene('piscina', this)"><div class="thumb-img" style="background-image: url('image/2.jpg');"></div></div>
+                    <div class="upn-thumb" onclick="changeScene('vista', this)"><div class="thumb-img" style="background-image: url('image/3.jpg');"></div></div>
+                    <div class="upn-thumb" onclick="changeScene('hab.1', this)"><div class="thumb-img" style="background-image: url('image/4.jpg');"></div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="servicios" class="page-section hidden">
+        <div class="container">
+            <h2 class="section-title">Servicios de Clase Mundial</h2>
+            <div class="services-list">
+                <div class="service-item"><h3>Restaurante Gourmet</h3><p>Cocina internacional de autor.</p></div>
+                <div class="service-item"><h3>Spa & Masajes</h3><p>Relajación total para tu cuerpo.</p></div>
+                <div class="service-item"><h3>Transporte VIP</h3><p>Traslados privados al aeropuerto.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contacto" class="page-section hidden">
+        <div class="container contact-flex">
+            <div class="contact-info">
+                <h2>¿Tienes Dudas?</h2>
+                <p>Estamos disponibles 24/7 para atenderte.</p>
+                <p>📍 Calle Principal 123, Cajamarca, Perú</p>
+                <p>📞 +51 987 654 321</p>
+            </div>
+            <form class="contact-form">
+                <input type="text" placeholder="Nombre Completo" required>
+                <input type="email" placeholder="Correo Electrónico" required>
+                <textarea placeholder="Tu Mensaje" rows="5"></textarea>
+                <button type="submit" class="btn-gold">Enviar Mensaje</button>
+            </form>
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>
